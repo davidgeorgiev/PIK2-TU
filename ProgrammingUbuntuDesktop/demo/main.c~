@@ -1,0 +1,7 @@
+#include <stdio.h>
+#include "phw.h"
+
+int main(){
+	printhw();
+	return 0;
+}

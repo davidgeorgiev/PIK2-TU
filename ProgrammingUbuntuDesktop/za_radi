@@ -1,0 +1,48 @@
+#include <stdio.h>
+#define MAXSIZEOFARRAY 100
+
+int MyMenu();
+int ArrayInit(int* myarr,int from_user_or_not);
+void RunOption(int optionid,int* myarr);
+
+int main(){
+	int option = 0;
+	int myarr[MAXSIZEOFARRAY];
+	while((option = MyMenu())&&(option!=3)){
+		RunOption(option,myarr);
+	}
+	return 0;
+}
+
+int MyMenu(){
+	int option = 0;
+	printf("1. Use existing array\n");
+	printf("2. Input your own array\n");
+	printf("3. Exit\n");
+	scanf("%d",&option);
+	
+	if((option <= 3)&&(option >= 1){
+		return option;
+	}else{
+		return 0;
+	}
+}
+
+int ArrayInit(int* myarr,int from_user_or_not){
+	int i = 0;
+	if(from_user_or_not){
+		
+	}else{
+		for(i = 0; i < MAXSIZEOFARRAY; i++){
+			myarr[i] = rand() % 100;
+		}
+	}
+}
+
+void RunOption(int optionid,int* myarr){
+	if(optionid == 1){
+		ArrayInit(myarr,0);
+	}else if(optionid == 2){
+		ArrayInit(myarr,1);
+	}
+}

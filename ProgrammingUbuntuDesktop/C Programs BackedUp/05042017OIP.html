@@ -1,0 +1,57 @@
+
+
+    <html>
+        <head>
+            <title> Hello kursova rabota </title>
+        </head>
+        <body>
+        <form name = "m1f">
+            D1: <input type="text" name="d1" value="20"/><br>
+            D2: <input type="text" name="d2" value="30"/><br>
+           
+        </form>
+        <button onclick="Test();">Alert</button>
+        <button onclick="DrawLines();">Draw</button>
+        <button onclick="ClearLines();">Clear</button>
+        <button onclick="DrawRandom();">Random</button><br>
+        <canvas id="myCanvas" width="500" height="300" style="border:1px solid #000000;">
+     
+        </canvas>
+        <script>
+            var StartPointX = 10;
+            var StartPointY = 10;
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            function Test(){
+                alert("alert");
+            }
+            function DrawLines(){      
+                var d1 = document.m1f.d1.value*1;
+                var d2 = document.m1f.d2.value*1;
+                ctx.moveTo(StartPointX,StartPointY);
+                ctx.lineTo(d1+StartPointX,StartPointY);
+                ctx.moveTo(StartPointX,StartPointY);
+                ctx.lineTo(StartPointX,d2+StartPointY);
+                ctx.moveTo(d1+StartPointX,StartPointY);
+                ctx.lineTo(StartPointX,d2+StartPointY);
+                ctx.stroke();
+            }
+            function ClearLines(){
+                ctx.clearRect(0, 0, 500, 300);
+            }
+            function DrawRandom(){
+                var d1 = Math.floor((Math.random() * 500) + 1);
+                var d2 = Math.floor((Math.random() * 300) + 1);
+                ctx.moveTo(StartPointX,StartPointY);
+                ctx.lineTo(d1+StartPointX,StartPointY);
+                ctx.moveTo(StartPointX,StartPointY);
+                ctx.lineTo(StartPointX,d2+StartPointY);
+                ctx.moveTo(d1+StartPointX,StartPointY);
+                ctx.lineTo(StartPointX,d2+StartPointY);
+                ctx.stroke();
+            }
+        </script>
+        </body>
+    </html>
+
+

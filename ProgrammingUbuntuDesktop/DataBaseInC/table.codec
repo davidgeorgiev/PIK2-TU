@@ -1,0 +1,1 @@
+name char(30),age int,grade float

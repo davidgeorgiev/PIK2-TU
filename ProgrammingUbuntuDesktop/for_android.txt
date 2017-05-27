@@ -1,0 +1,17 @@
+#!/bin/sh
+exec tail -n +3 $0
+# This file provides an easy way to add custom menu entries.  Simply type the
+# menu entries you want to add after this comment.  Be careful not to change
+# the 'exec tail' line above.
+
+# first type this "gksu gedit /ect/grub.d/40_custom in terminal" and edit file with the curent
+# use that command to view partititions and find the android partitition "sudo fdisk -l" and change (hd0,"there you type the number of the sda look below on set root and change it")
+# run "sudo chmod +x /ect/grub.d/40_custom"
+# update grub with the next command: "sudo update-grub"
+# restart pc and you are done
+
+menuentry "Android-x86" {
+set root='(hd0,3)'
+linux /android-4.4-r1/kernel quiet root=/dev/ram0 androidboot.hardware=eeepc acpi_sleep=s3_bios,s3_mode
+SRC=/android-4.4-r1
+initrd /android-4.4-r1/initrd.img}
