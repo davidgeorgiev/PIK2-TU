@@ -15,7 +15,7 @@ int path_exists(char* name)
   return (stat (name, &buffer) == 0);
 }
 char* get_dir_of_file(char* full_file_name){
-	char* dir = (char*)malloc(sizeof(char)*512);
+	char* dir = (char*)malloc(512);
 	int i = 0;
 	while(full_file_name[i]!='\0'){i++;}
 	while((full_file_name[i]!='\\')&&(full_file_name[i]!='/')){i--;}
@@ -28,7 +28,7 @@ char* get_dir_of_file(char* full_file_name){
 	return dir;
 }
 char* get_name_of_file(char* full_file_name){
-	char* name = (char*)malloc(sizeof(char)*256);
+	char* name = (char*)malloc(256);
 	int i = 0,j = 0;
 	while(full_file_name[i]!='\0'){i++;}
 	while((full_file_name[i]!='\\')&&(full_file_name[i]!='/')){i--;}
@@ -48,7 +48,7 @@ char* get_size_of_file_in_bytes(char* full_file_name){
 char* get_dates_of_file(char* full_file_name,char which_date){
 	struct stat attrib;
     stat(full_file_name, &attrib);
-    char* date = (char*)malloc(sizeof(char)*11);
+    char* date = (char*)malloc(11);
     switch(which_date){
     	case 'c':strftime(date, 11, "%d.%m.%Y", localtime(&(attrib.st_ctime)));break;
     	case 'm':strftime(date, 11, "%d.%m.%Y", localtime(&(attrib.st_mtime)));break;
@@ -65,7 +65,7 @@ char* get_flags_of_file(char* full_file_name,char* just_filename){
 	struct stat attrib;
     stat(full_file_name, &attrib);
     if (stat(full_file_name, &attrib) == 0 && attrib.st_mode & S_IXUSR){flags[3]=1;}
-	char* flags_pointer = (char*)malloc(sizeof(char)*100);
+	char* flags_pointer = (char*)malloc(100);
 	sprintf(flags_pointer,"hidden = %d, read only = %d, sys = %d, exec = %d",flags[0],flags[1],flags[2],flags[3]);
 	return flags_pointer;
 }
