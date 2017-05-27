@@ -86,7 +86,7 @@ void append_object_to_list_by_address(FileInformation* address){
 	temp->next = (struct FileInformation*)address;
 	temp = (FileInformation*)(temp->next);
 	temp->next = NULL;
-	printf("\t%sfile successfuly added to list\n%s",KGRN,KWHT);
+	printf("%sfile successfuly added to list\n%s",KGRN,KWHT);
 }
 FileInformation* make_an_object_and_return_address_by_filename(char* filename){
 	FileInformation* obj_ptr = (FileInformation*)malloc(sizeof(FileInformation));
@@ -107,13 +107,13 @@ FileInformation* make_an_object_and_return_address_by_filename(char* filename){
 	return obj_ptr;
 }
 void printf_object_by_address(FileInformation* address,int index){
-	printf("\t%sNOW SHOWING INFO FOR FILE %d\n",KGRN,index);
-	printf("\t%spath                 = %s\n",KYEL,address->path);
-	printf("\tfilename             = %s\n",address->filename);
-	printf("\tsize in bytes        = %ld\n",address->size_in_bytes);
-	printf("\tdate of creation     = %s\n",address->date_of_creation);
-	printf("\tdate of modification = %s\n",address->date_of_modification);
-	printf("\tflags                = %s%s\n",address->flags,KWHT);
+	printf("%sNOW SHOWING INFO FOR FILE %d\n",KGRN,index);
+	printf("%spath                 = %s\n",KYEL,address->path);
+	printf("filename             = %s\n",address->filename);
+	printf("size in bytes        = %ld\n",address->size_in_bytes);
+	printf("date of creation     = %s\n",address->date_of_creation);
+	printf("date of modification = %s\n",address->date_of_modification);
+	printf("flags                = %s%s\n",address->flags,KWHT);
 }
 void print_all_files_with_name(char* search_file){
 	int something_found = 0,i = 0;
@@ -127,7 +127,7 @@ void print_all_files_with_name(char* search_file){
 		}
 	}
 	if(!something_found){
-		printf("\t%sNo files with name \"%s\"%s\n",KRED,search_file,KWHT);
+		printf("%sNo files with name \"%s\"%s\n",KRED,search_file,KWHT);
 	}
 }
 void print_all_files_in_dir(char* search_dir){
@@ -149,9 +149,9 @@ void print_all_files_in_dir(char* search_dir){
 		}
 	}
 	if(!counter){
-		printf("\t%sNo file in such directory in the list%s\n",KRED,KWHT);
+		printf("%sNo file in such directory in the list%s\n",KRED,KWHT);
 	}else{
-		printf("\t%sCounted files: %d; Summed size: %ld%s\n",KGRN,counter,summed_size,KWHT);
+		printf("%sCounted files: %d; \nSummed size: %ld Bytes%s\n",KGRN,counter,summed_size,KWHT);
 	}
 }
 #endif
