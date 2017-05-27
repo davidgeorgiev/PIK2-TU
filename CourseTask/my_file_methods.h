@@ -65,11 +65,15 @@ char* get_flags_of_file(char* full_file_name,char* just_filename){
 	struct stat attrib;
     stat(full_file_name, &attrib);
     if (stat(full_file_name, &attrib) == 0 && attrib.st_mode & S_IXUSR){flags[3]=1;}
+    flags[2] = is_system(full_file_name);
 	char* flags_pointer = (char*)malloc(100);
 	sprintf(flags_pointer,"hidden = %d, read only = %d, sys = %d, exec = %d",flags[0],flags[1],flags[2],flags[3]);
 	return flags_pointer;
 }
 int is_hidden(const char *name){
   return ((name[0] == '.')||(name[strlen(name)-1] == '~')) && (strcmp(name, ".") != 0) && (strcmp(name, "..") != 0);
+}
+int is_system(char* full_file_name){
+  return ((full_file_name[0] == '/')&&(full_file_name[1] == 's')&&(full_file_name[2] == 'y')&&(full_file_name[3] == 's'));
 }
 #endif
