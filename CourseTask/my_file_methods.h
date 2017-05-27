@@ -1,13 +1,35 @@
 #ifndef MY_FILE_METHODS_HEADER
 #define MY_FILE_METHODS_HEADER
 /*prototypes*/
+/*path_exists(char* name) - функцията проверява дали низът, към който сочи подаденият указател е валидна директория връща 1 ако е и 0 ако не е*/
 int path_exists(char* name);
+/*get_dir_of_file(char* full_file_name) - приема пълното име на файла като аргумент под
+формата на указател към символен низ и връща указател към
+символен низ отговарящ на пълния адрес на директорията, в която се намира този файл*/
 char* get_dir_of_file(char* full_file_name);
+/*get_name_of_file(char* full_file_name) - приема пълното име на файла като аргумент под
+формата на указател към символен низ и връща указател към
+символен низ отговарящ на името на файла*/
 char* get_name_of_file(char* full_file_name);
+/*get_size_of_file_in_bytes(char* full_file_name) - приема пълното име на файла като аргумент под
+формата на указател към символен низ и връща указател 
+стойност от тип long int отговаряща на размера на файла в байтове. Указателят е кастнат към char* за удобство*/
 char* get_size_of_file_in_bytes(char* full_file_name);
+/*get_dates_of_file(char* full_file_name,char which_date) - приема пълното име на файла като аргумент под
+формата на указател към символен низ и връща друг указател сочещ към символен низ отговарящ на датата на файла.
+Вторият аргумент указва, коя от датите да се върне, дали тази на създаване или тази на променяне*/
 char* get_dates_of_file(char* full_file_name,char which_date);
+/*get_flags_of_file(char* full_file_name,char* just_filename) - функцията приема, като аргументи два указателя
+единият, от които сочи към пълното име на файла, а другият просто към името на файла за удобство. Функцията
+се грижи за определянето на флаговете на файла със съответното име използвайки системни функции и декларираните
+долу две мои функции is_hidden(const char *name) и is_system(char* full_file_name)*/
 char* get_flags_of_file(char* full_file_name,char* just_filename);
+/*is_hidden(const char *name) - функцията проверява дали файлът е скрит, като извършва тест на първия и
+последния символ от неговото име*/
 int is_hidden(const char *name);
+/*is_system(char* full_file_name) - приема пълното име на файла като аргумент под
+формата на указател към символен низ и проверява дали файлът се намира в папката system*/
+int is_system(char* full_file_name);
 /*functions*/
 int path_exists(char* name)
 {

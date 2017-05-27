@@ -1,8 +1,7 @@
 #ifndef MY_INPUT_STRING_HEADER
 #define MY_INPUT_STRING_HEADER
-/*prototypes*/
-void InputString(char* char_pointer);
 /*functions*/
+/*InputString(char* char_pointer) - моя функция за прочитане на символен низ от клавиатурата*/
 void InputString(char* char_pointer){
 	fflush(stdin);
 	int i = 0;

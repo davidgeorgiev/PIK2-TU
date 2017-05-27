@@ -1,5 +1,6 @@
 #ifndef LYBRA
 #define LYBRA
+/*Включване на необходимите библиотеки*/
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/stat.h>
@@ -7,6 +8,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
+/*Дефиниране на константни специални символни низове (за цветове и изчистване на екрана)*/
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
 #define KGRN  "\x1B[32m"

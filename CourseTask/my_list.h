@@ -15,15 +15,29 @@ typedef struct{
 }FileInformation;
 FileInformation* head = NULL;
 /*prototypes*/
+/*clear_list() - функция без параметър, която се грижи за правилното освобождаване на паметта на списъка*/
 void clear_list();
+/*reconstruct_list() - функция, която се грижи за правилното инициализиране са списъка, използва горната функция за да освободи паметта на списъка правилно*/
 void reconstruct_list();
+/*count_elements_in_list() - функцията не получава параметри, просто преброява елементите в списъка и връща техния брой*/
 int count_elements_in_list();
+/*save_current_list_to_file() - грижи се за записването на списъка във бинарния файл*/
 void save_current_list_to_file();
+/*read_bin_file_to_list() - грижи се за прочитането на списъка от бинарния файл*/
 void read_bin_file_to_list();
+/*append_object_to_list_by_address(FileInformation* address) - функцията не връща стойност. Тя приема като аргумент адрес на обект и го свързва към списъка, като го добавя накрая и го насочва към NULL*/
 void append_object_to_list_by_address(FileInformation* address);
+/*make_an_object_and_return_address_by_filename(char* filename) - функцията не връща стойност. Тя приема като аргумент пълното име на файл и се грижи да създаде обект с информацията за файла в подходящ формат използвайки
+другия ми header file my_file_methods.h, който съдържа всякакви методи за взимане на нужната информация за файла*/
 FileInformation* make_an_object_and_return_address_by_filename(char* filename);
+/*printf_object_by_address(FileInformation* address,int index) - функцията приема като аргумент адрес на обект
+от списъка и извежда на екрана информация за него, вторият аргумент служи за номерация на изведения резултат*/
 void printf_object_by_address(FileInformation* address,int index);
+/*print_all_files_with_name(char* search_file) - функцията извежда информацията на обектите от списъка
+притежаващи име съвпадащо с подаденото като аргумент такова*/
 void print_all_files_with_name(char* search_file);
+/*print_all_files_in_dir(char* search_dir) - функцията извежда информацията на обектите от списъка
+намиращи се в подадена директория от потребителя*/
 void print_all_files_in_dir(char* search_dir);
 /*functions*/
 void clear_list(){
